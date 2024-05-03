@@ -119,3 +119,80 @@ html {
 {
   background-color: aliceblue;
 }
+
+
+
+/*Estilo de las listas*/
+
+.container {
+  width: 40vw;
+  padding: 3rem;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 1%);
+  border-radius: 3rem;
+  background: linear-gradient(to right bottom, #2DD4BF, rgba(255, 255, 255, 0.5));
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
+}
+.container::before {
+  content: "";
+  top: -10rem;
+  left: -10rem;
+  width: 40rem;
+  height: 40rem;
+  position: absolute;
+  border-radius: 50%;
+  /* background: rgba(255, 255, 255, 0.35); */
+}
+.container::after {
+  content: "";
+  bottom: 0rem;
+  right: -10rem;
+  width: 40rem;
+  height: 40rem;
+  margin-bottom: -25rem;
+  position: absolute;
+  border-radius: 50%;
+  /* background: rgba(255, 185, 142, 0.6); */
+}
+.container h1 {
+  top: 0;
+  margin: 0;
+  padding: 6rem 0;
+  padding-top: 7rem;
+  position: sticky;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 3rem;
+  /* box-shadow: 0 7px 2rem #ea5753;
+  background: rgba(234, 87, 83, 0.7); */
+}
+.container ol {
+  margin: 0;
+  gap: 1rem;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  place-items: center;
+  flex-direction: column;
+  counter-reset: my-counter;
+}
+.container ol li {
+  width: 40rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: #000000;
+  border-radius: 3rem;
+  background: rgba(83, 206, 234, 0.7);
+  counter-increment: my-counter;
+  padding: 1.1rem 1.5rem 1.1rem 1.5rem;
+}
+.container ol li::before {
+  content: counter(my-counter) ". ";
+}

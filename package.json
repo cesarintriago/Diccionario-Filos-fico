@@ -1,8 +1,8 @@
 {
-  "name": "magenta-main",
+  "name": "cesar-main",
   "version": "1.2.0",
   "type": "module",
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@9.0.6",
   "author": {
     "name": "Elian Van Cutsem",
     "email": "hello@elian.codes",

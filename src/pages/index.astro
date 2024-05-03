@@ -77,6 +77,11 @@ const democracia = [
   { name: "Corrupciones no delictivas (ideológicas, nematológicas) de la democracia española", url: "https://astro.build/" }
 ]
 
+const estetica=[
+{ name: "Estética", url: "https://astro.build/" },
+  { name: "Filosofia del arte", url: "https://astro.build/" },
+
+]
 
 ---
 
@@ -96,13 +101,13 @@ const democracia = [
               I. Cuestiones <a
                 class='text-white'
                 target='_blank'
-                href='https://astro.build/'>Prembulares</a
+                href='/preambulares/'>Prembulares</a
               >
             </p>
             <p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
               Una introducción al materialismo Filosófico
             </p>
-            <Button target={'_self'} href='/blog/'>
+            <Button target={'_self'} href='/preambulares/'>
               Check out the blog &rarr;
             </Button>
           </div>
@@ -312,7 +317,7 @@ const democracia = [
         </h2>
         <ul class='flex gap-4 flex-wrap'>
           {
-            ontologia.map((item) => (
+            estetica.map((item) => (
               <li>
                 <Pill>
                   <a
