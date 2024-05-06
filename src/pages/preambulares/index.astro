@@ -15,6 +15,14 @@ import { Card, Pill } from '@eliancodes/brutal-ui';
 import Layout from '@layouts/Default.astro';
 import BlogList from '@components/blog/BlogList.astro';
 
+import { supabase } from '../../../src/lib/supabase.js';
+
+
+let { data: articulo, error } = await supabase
+  .from('articulo')
+  .select('titulo')
+  .filter('categoria', 'eq', 'Cuestiones preambulares')
+  .order('id', { ascending: true })
 
 
 ---
@@ -32,47 +40,16 @@ import BlogList from '@components/blog/BlogList.astro';
   <Card>
     <h1 class='text-3xl font-bold text-center'>Cuestiones Preambulares</h1>
     <div class="container" >
-    <ol>
-          <li>Materialismo filosófico</li>
-          <li>Materialismo metodológico como materialismo operatorio</li>
-          <li>Filosofía / Ciencia</li>
-          <li>Ideas y Conceptos: Filosofía / Técnicas, Ciencias y Tecnologías</li>
-          <li>Ideas y Conceptos: Claros y distintos / Oscuros y confusos / Paraideas y Paraconceptos</li>
-          <li>Conceptos genérico-sustancialistas (fisicalistas, fenomenológicos, empíricos) / Conceptos abstracto-funcionales (ontológicos, esenciales, estructurales)</li>
-          <li>Morfológico / Lisológico: Ideas y Conceptos</li>
-          <li>Morfológico / Lisológico según el modo de los estados</li>
-          <li>Estados morfológico y lisológico de un campo: planos ontológico y gnoseológico</li>
-          <li>Morfológico / Lisológico según el modo de los procesos de transformación: lisado y conformado</li>
-          <li>Filosofía (acepciones de)</li>
-          <li>Filosofía “exenta” respecto del “presente”</li>
-          <li>Filosofía (exenta) dogmática o escolástica</li>
-          <li>Filosofía (exenta) histórica o etnológica</li>
-          <li>Filosofía “implantada” o “inmersa” respecto del presente</li>
-          <li>Filosofía inmersa y adjetiva</li>
-          <li>Filosofía espontánea de los científicos</li>
-          <li>Filosofía genitiva</li>
-          <li>Filosofía inmersa y crítico-sistemática</li>
-          <li>Filosofía en sentido lato / Filosofía en sentido estricto</li>
-          <li>Verdadera filosofía / Filosofía verdadera</li>
-          <li>Filosofías centradas / Filosofías no centradas (o sistemáticas) </li>
-          <li>Historia filológica / Historia filosófica de la Filosofía</li>
-          <li>Teología (nematología) / Ciencia / Filosofía de la Religión</li>
-          <li>Sagrado</li>
-          <li>Sebasmático</li>
-          <li>Idea funcional de Pensamiento: Pensamiento subjetivo / Pensamiento objetivo</li>
-          <li>Pensamiento público / Saberes públicos / Filosofía en sentido estricto</li>
-          <li>Acepciones del término “español” para determinar la Idea de Pensamiento(público) español</li>
-          <li>Reclasificación de los idiomas según la Idea funcional de Pensamiento español</li>
-          <li>Pensamiento español realmente existente en el marco histórico de la sociedad española</li>
-          <li>Pensamiento español en el marco del proyecto teológico-político imperialista: latín y romance castellano</li>
-          <li>Pensamiento español en el marco del Imperio hispánico: el español lengua universal</li>
-          <li>Pensamiento español en el marco de la sociedad del presente: la España de las Autonomías</li>
-          <li>Negación de la existencia del Pensamiento español: Leyenda negra / Metodología negra: Retraso histórico / Izquierda negra</li>
-          <li>Pensamiento Alicia como racionalidad simplista y abierta / Pensamiento Utópico</li>
-          <li>Pensamiento Alicia como el pensamiento (simplista y sonriente) del krausismo</li>
-          <li>Pensamiento Alicia en las Ciencias Naturales, Sociales y Culturales</li>
-          <li>Pensamiento Alicia como pensamiento de mala fe</li>
-    </ol>
+
+      <ol>
+
+        {articulo.map((item: any) => (
+          <li>{item.titulo}</li>
+      ))}
+
+      </ol>
+    
+      
   </div>
     </Card>
   </div>
