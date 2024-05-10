@@ -1,0 +1,17 @@
+---
+import { supabase } from '../../../src/lib/supabase.js';
+
+let { data: articulo, error } = await supabase
+  .from('articulo')
+  .select('titulo, id')
+  .filter('categoria', 'eq', 'Cuestiones preambulares')
+  .order('id', { ascending: true })
+---
+
+<ol>
+  {articulo && articulo.map((item: any) => (
+    item.id ? <li tabindex="1">
+      <a href={`/articulolayout/${item.id}`}>{item.titulo}</a>
+    </li> : null
+  ))}
+</ol>

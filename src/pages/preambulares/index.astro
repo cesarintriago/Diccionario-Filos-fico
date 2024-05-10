@@ -20,9 +20,12 @@ import { supabase } from '../../../src/lib/supabase.js';
 
 let { data: articulo, error } = await supabase
   .from('articulo')
-  .select('titulo')
+  .select('titulo, id')
   .filter('categoria', 'eq', 'Cuestiones preambulares')
   .order('id', { ascending: true })
+
+  console.log(articulo);
+
 
 
 ---
@@ -36,17 +39,19 @@ let { data: articulo, error } = await supabase
 >
   <main class='bg-green p-6'>
 
-    <div class='w-1/2 h-1280 mx-auto'>
+    <div class='w-1/2 h-1680 mx-auto'>
   <Card>
     <h1 class='text-3xl font-bold text-center'>Cuestiones Preambulares</h1>
     <div class="container" >
 
+      
+
       <ol>
-
-        {articulo.map((item: any) => (
-          <li>{item.titulo}</li>
-      ))}
-
+        {articulo && articulo.map((item: any) => (
+          <li tabindex="1">
+            <a href={`/articulolayout/${item.id}`}>{item.titulo}</a>
+          </li>
+        ))}
       </ol>
     
       
