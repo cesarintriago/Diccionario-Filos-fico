@@ -24,7 +24,7 @@ let { data: articulo, error } = await supabase
   .filter('categoria', 'eq', 'Cuestiones preambulares')
   .order('id', { ascending: true })
 
-  console.log(articulo);
+  //console.log(articulo);
 
 
 
@@ -49,7 +49,7 @@ let { data: articulo, error } = await supabase
       <ol>
         {articulo && articulo.map((item: any) => (
           <li tabindex="1">
-            <a href={`/articulolayout/${item.id}`}>{item.titulo}</a>
+            <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
           </li>
         ))}
       </ol>

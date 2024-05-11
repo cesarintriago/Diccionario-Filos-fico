@@ -1,0 +1,19 @@
+---
+import { supabase } from '../../lib/supabase.js';
+const { id } = Astro.params;
+
+//obten de la base de datos en supabase los datos del articulo con el id que se pasa como parametro 
+let { data: articulo, error } = await supabase
+  .from('articulo')
+  .select('titulo, categoria, contenido')
+  .filter('id', 'eq', id)
+  .order('id', { ascending: true })
+  .single();
+
+  //console.log(articulo);
+---
+<meta charset="UTF-8">
+{id}
+<h1> {articulo.titulo} </h1>
+<h2> {articulo.categoria} </h2>
+<p> {articulo.contenido} </p>
