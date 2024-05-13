@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseNavigation from '@components/layout/BaseNavigation.astro';
+import styles from '../../styles/listas.module.css'
 // import Layout from '@layouts/Default.astro';
 // import BlogList from '@components/blog/BlogList.astro';
 
@@ -39,21 +40,20 @@ let { data: articulo, error } = await supabase
 >
   <main class='bg-green p-6'>
 
-    <div class='w-1/2 h-1680 mx-auto'>
+    <div class='w-1/2 h-630 mx-auto'>
   <Card>
     <h1 class='text-3xl font-bold text-center'>Cuestiones Preambulares</h1>
-    <div class="container" >
+    <div class={styles.container} >
 
-      
 
-      <ol>
+      <ol className={styles['lista-ol']}>
         {articulo && articulo.map((item: any) => (
-          <li tabindex="1">
+          <li className={styles['lista-li']} tabindex="1">
             <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
           </li>
         ))}
       </ol>
-    
+    </div>
       
   </div>
     </Card>
