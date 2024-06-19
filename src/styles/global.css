@@ -122,3 +122,28 @@ html {
 
 
 
+/* ---- ⚫️ Form de la barra de busqueda  ⚪️ ---- */
+.form{
+
+  font-family: Poppins;
+  display: grid;
+  gap: 1rem;
+  max-width: 320rem;
+  border: 2px solid #222;
+  border-radius: 0.5rem;
+  padding: 1rem; 
+}
+
+.form label{
+  font-weight: bold;
+  font-size: 2rem;
+  width: 900px;
+}
+
+input{
+  font:inherit;
+  display: grid;
+  border: 2px solid #222;
+  border-radius: 0.5rem;
+  max-width: 54000px;
+}
