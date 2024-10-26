@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Default.astro';
+import BlogSideBar from '@components/blog/BlogSideBar.astro';
+import BlogContent from '@components/blog/BlogContent.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
+import { supabase } from '../../lib/supabase.js';
+const { id } = Astro.params;
+
+//obten de la base de datos en supabase los datos del articulo con el id que se pasa como parametro 
+let { data: articulo, error } = await supabase
+  .from('articulo')
+  .select('titulo, categoria, contenido')
+  .filter('id', 'eq', id)
+  .order('id', { ascending: true })
+  .single();
+
+  //console.log(articulo);
+---
+<meta charset="UTF-8">
+
+
+
+<Layout title={articulo ? articulo.titulo : 'Loading...'} description={articulo ? articulo.categoria : 'Loading...'}>
+  <main class='bg-#dde4e0 p-6 lg:grid lg:grid-cols-3
+  flex justify-center'>
+    <!-- <BlogSideBar headings={headings} />
+    <BlogContent content={content}> -->
+
+      {articulo ? (
+        <>
+          <h1> {articulo.titulo} </h1>
+          <p class="poppins flex text-justify"> {articulo.contenido} </p>
+          <h1 class="text-right"><a href="/muerte/">{articulo.categoria}</a></h1>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+
+
+      <!-- <slot /> -->
+    <!-- </BlogContent> -->
+  </main>
+  <!-- <section class='p-6'>
+    <RecentBlogPosts count={6} />
+  </section> -->
+</Layout>
