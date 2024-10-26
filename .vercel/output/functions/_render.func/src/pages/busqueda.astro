@@ -1,0 +1,346 @@
+---
+import Layout from '@layouts/Default.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
+import MobileSocials from '@components/home/MobileSocials.astro';
+import { Pill } from '@eliancodes/brutal-ui';
+import { Button } from '@eliancodes/brutal-ui';
+import { Card } from '@eliancodes/brutal-ui';
+
+const ontologia = [
+  { name: 'Materialismo ontológico', url: 'https://astro.build/' },
+  { name: 'Dialéctica', url: 'https://uno.antfu.me/' },
+  {
+    name: 'Finalidad',
+    url: 'https://docs.astro.build/en/guides/content-collections/',
+  },
+  { name: 'Causalidad', url: 'https://docs.astro.build/en/guides/rss/' },
+  {
+    name: 'Existencia, Posibilidad, Necesidad',
+    url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/',
+  },
+  { name: 'Apariencia y Verdad', url: 'https://vercel.com' },
+  { name: 'Idea general y Ontología de la Corrupción', url: 'https://www.typescriptlang.org/' },
+];
+
+const gnoseologia = [
+  { name: 'Doctrina de las categorías ', url: 'https://astro.build/' },
+  { name: 'Teoría filosófica (gnoseológica) de la ciencia', url: 'https://uno.antfu.me/' },
+];
+
+const antropologia = [
+  { name: "Cuestiones proemiales", url: "https://astro.build/" },
+  { name: "Individuo y Persona", url: "https://astro.build/" },
+  { name: "Libertad", url: "https://astro.build/" },
+  { name: "Sentido de la vida y religación", url: "https://astro.build/" },
+  { name: "Filosofía de la religión", url: "https://astro.build/" },
+  { name: "Fetichismo, Magia y Religión", url: "https://astro.build/" },
+  { name: "Agnosticismo", url: "https://astro.build/" },
+  { name: "Filosofía de la cultura", url: "https://astro.build/" },
+  { name: "Antropología filosófica", url: "https://astro.build/" },
+  { name: "Filosofía de la historia", url: "https://uno.antfu.me/" }
+];
+
+const filosofiadelahistoria = [
+  { "name": "Teoría de las ciencias históricas", "url": "https://astro.build/" },
+  { "name": "Reliquias", "url": "https://astro.build/" },
+  { "name": "Pasado / Presente / Futuro", "url": "https://astro.build/" },
+  { "name": "Reliquias y Relatos", "url": "https://astro.build/" },
+  { "name": "Idea de Historia y sus determinacinones", "url": "https://astro.build/" },
+  { "name": "Determinaciones de la idea de Historia como predicable de sujetos humanos", "url": "https://astro.build/" },
+  { "name": "Determinaciones de la idea de Historia en función de la amplitud atribuida a su sujeto (el hombre)", "url": "https://astro.build/" },
+  { "name": "Determinaciones de la idea de Historia en función de la estructura holótica atribuida al predicado (“historia”)", "url": "https://astro.build/" }
+];
+
+const eticaymoral = [
+  { name: "Etica y moral", url: "https://astro.build/" },
+  { name: "Derechos humanos", url: "https://astro.build/" },
+  { name: "Muerte, fallecimiento, eutanasia", url: "https://astro.build/" },
+  { name: "Bioética", url: "https://astro.build/" },
+  { name: "Tolerancia", url: "https://astro.build/" }
+];
+
+const filosofiapolitica = [
+  { name: "Teoría de la Sociedad política y del Estado (parte ontológica)", url: "https://astro.build/" },
+  { name: "Idea de Imperio", url: "https://astro.build/" },
+  { name: "Idea de Nación", url: "https://astro.build/" },
+  { name: "España como sociedad política: Unidad e Identidad", url: "https://astro.build/" },
+  { name: "Estado de derecho", url: "https://astro.build/" }
+];
+
+const democracia = [
+  { name: "Cuestiones proemiales", url: "https://astro.build/" },
+  { name: "Estructura y Ontología", url: "https://astro.build/" },
+  { name: "Materialismo / Idealismo político y democrático", url: "https://astro.build/" },
+  { name: "Democracia realmente existente: Fundamentalismo, Funcionalismo y Contrafundamentalismo", url: "https://astro.build/" },
+  { name: "Democracia como Institución: Nematología y Tecnología", url: "https://astro.build/" },
+  { name: "Democracia y Corrupción: Corrupciones estructurales, nematológicas (ideológicas) y tecnológicas", url: "https://astro.build/" },
+  { name: "Corrupciones no delictivas (ideológicas, nematológicas) de la democracia española", url: "https://astro.build/" }
+]
+
+const estetica=[
+{ name: "Estética", url: "https://astro.build/" },
+  { name: "Filosofia del arte", url: "https://astro.build/" },
+
+]
+
+---
+
+<Layout
+  title='Home'
+  pageTitle='Brutal Theme | Home'
+  description='Brutal is a minimalistic, neobrutalism theme for Astro.'
+>
+  <main class='bg-sky p-6'>
+    <MobileSocials />
+    <section id='about' class='grid md:grid-cols-13 gap-8 mt-4'>
+      <h2 class='hidden'>About Brutal</h2>
+      <div class='col-span-5'>
+        <Card color="#65a30d">
+          <div class='flex flex-col justify-between items-start gap-4'>
+            <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
+              I. Cuestiones <a
+                class='text-white'
+                target='_blank'
+                href='/preambulares/'>Prembulares</a
+              >
+            </p>
+            <p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
+              Una introducción al materialismo Filosófico
+            </p>
+            <Button target={'_self'} href='/preambulares/'>
+              Check out the blog &rarr;
+            </Button>
+          </div>
+        </Card>
+      </div>
+      <!--  Tamaño de la tarjeta -->
+      <div class='col-span-4'>
+          <Card color="white">
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+            II. Ontología
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              ontologia.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+
+      <div class='col-span-4'>
+        <Card color ="#ef4444">
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+          III. Gnoseología (Teoría de la ciencia)
+        </h2>
+        <ul class='flex gap-4 flex-wrap'>
+          {
+            gnoseologia.map((item) => (
+              <li>
+                <Pill>
+                  <a
+                    class='sanchez'
+                    href={item.url}
+                    target='_blank'
+                    title={`Go to ${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                </Pill>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>  
+     
+    </section>
+
+
+    <section id='about' class='grid md:grid-cols-13 gap-8 mt-4'>
+      <h2 class='hidden'>About Brutal</h2>
+      <div class='col-span-6'>
+        <Card color ="#AD1519">
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+          IV.I. Antropología
+        </h2>
+
+        <ul class='flex gap-4 flex-wrap'>
+          {
+            antropologia.map((item) => (
+              <li>
+                <Pill>
+                  <a
+                    class='sanchez'
+                    href={item.url}
+                    target='_blank'
+                    title={`Go to ${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                </Pill>
+              </li>
+            ))
+          }
+        </ul>
+
+      </Card>
+    </div>
+    
+    <div class='col-span-6'>
+      <Card color="#FABD00">
+      <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+        IV.II Filosofía de la Historia
+      </h2>
+      <ul class='flex gap-4 flex-wrap'>
+        {
+          filosofiadelahistoria.map((item) => (
+            <li>
+              <Pill>
+                <a
+                  class='sanchez'
+                  href={item.url}
+                  target='_blank'
+                  title={`Go to ${item.name}`}
+                >
+                  {item.name}
+                </a>
+              </Pill>
+            </li>
+          ))
+        }
+      </ul>
+    </Card>
+  </div>
+
+
+
+
+      <!--  Tamaño de la tarjeta -->
+      <div class='col-span-6'>
+          <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+            V. Ética y moral
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              eticaymoral.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
+
+      <div class='col-span-6'>
+        <Card>
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+          VI. Filosofia política
+        </h2>
+        <ul class='flex gap-4 flex-wrap'>
+          {
+            filosofiapolitica.map((item) => (
+              <li>
+                <Pill>
+                  <a
+                    class='sanchez'
+                    href={item.url}
+                    target='_blank'
+                    title={`Go to ${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                </Pill>
+              </li>
+            ))
+          }
+        </ul>
+             
+      </Card>
+    </div>  
+
+
+    <div class='col-span-6'>
+      <Card>
+      <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+        VI.I Democracia como sociedad política
+      </h2>
+      <ul class='flex gap-4 flex-wrap'>
+        {
+          democracia.map((item) => (
+            <li>
+              <Pill>
+                <a
+                  class='sanchez'
+                  href={item.url}
+                  target='_blank'
+                  title={`Go to ${item.name}`}
+                >
+                  {item.name}
+                </a>
+              </Pill>
+            </li>
+          ))
+        }
+      </ul>
+    </Card>
+  </div>
+
+         
+      <div class='col-span-6'>
+        <Card>
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+          VII. Estética y Filosofia del arte
+        </h2>
+        <ul class='flex gap-4 flex-wrap'>
+          {
+            estetica.map((item) => (
+              <li>
+                <Pill>
+                  <a
+                    class='sanchez'
+                    href={item.url}
+                    target='_blank'
+                    title={`Go to ${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                </Pill>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+      <!--  Tamaño de la tarjeta -->
+    
+       
+     
+    </section>
+
+    <RecentBlogPosts />
+  </main>
+</Layout>

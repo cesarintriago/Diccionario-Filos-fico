@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseNavigation from '@components/layout/BaseNavigation.astro';
+import styles from '../../styles/listas.module.css'
+// import Layout from '@layouts/Default.astro';
+// import BlogList from '@components/blog/BlogList.astro';
+
+// const posts = await getCollection('blog').then((collection) =>
+//   collection.reverse()
+// );
+import '../../styles/global.css'
+import { Card, Pill } from '@eliancodes/brutal-ui';
+
+
+
+import Layout from '@layouts/Default.astro';
+import BlogList from '@components/blog/BlogList.astro';
+
+import { supabase } from '../../../src/lib/supabase.js';
+
+
+let { data: articulo, error } = await supabase
+  .from('articulo')
+  .select('titulo, id')
+  .eq('categoria', 'Cuestiones preambulares')
+  .order('id', { ascending: true });
+
+if (error) {
+  console.error('Error fetching data:', error);
+}
+
+  //console.log(articulo);
+
+
+
+---
+
+
+
+<Layout
+  title='Blog'
+  description='Brutal Blog | On this page you can find a collection of blogposts'
+  pageTitle='Brutal Blog'
+>
+  <main class='bg-green p-6'>
+
+    <div class='w-1/2 h-630 mx-auto'>
+  <Card>
+    <h1 class='text-3xl font-bold text-center'>Cuestiones Preambulares</h1>
+    <div class={styles.container} >
+
+
+      <ol class={styles['lista-ol']}>
+        {articulo && articulo.map((item: any) => (
+          <li class={styles['lista-li']} tabindex="1">
+            <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
+          </li>
+        ))}
+      </ol>
+    </div>
+      
+  </div>
+    </Card>
+  </div>
+
+
+ 
+    
+  </main>
+</Layout>

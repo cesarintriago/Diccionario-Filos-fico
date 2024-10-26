@@ -1,0 +1,62 @@
+---
+// Importa supabase
+import { supabase } from '../../lib/supabase.js';
+
+// Función getStaticPaths para definir las rutas dinámicas
+export async function getStaticPaths() {
+  const response = await supabase
+    .from('articulo')
+    .select('id')
+    .filter('categoria', 'eq', 'Cuestiones preambulares')
+    .order('id', { ascending: true });
+
+  if (response && response.data) {
+    const paths = response.data.map((item) => ({
+      params: { id: item.id.toString() },
+    }));
+    return { paths, fallback: false };
+  } else {
+    return { paths: [], fallback: false };
+  }
+}
+
+// Función get para obtener los datos del artículo específico
+export async function get({ params }: { params: { id: string } }) {
+  let { data: articulo, error } = await supabase
+    .from('articulo')
+    .select('*')
+    .eq('id', params.id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return { props: {} };
+  }
+
+  return { props: { articulo } };
+}
+
+interface Articulo {
+  id: string;
+  titulo: string;
+  categoria: string;
+  contenido: string;
+  indice: string[];
+}
+
+const { articulo } = Astro.props as { articulo: Articulo };
+---
+
+<article>
+  <h1>{articulo.titulo}</h1>
+  <h2>{articulo.categoria}</h2>
+  <p>{articulo.contenido}</p>
+  <h3>Índice</h3>
+  <ol>
+    {articulo.indice.map((item, index) => (
+      <Fragment key={index.toString()}>
+        <li>{item}</li>
+      </Fragment>
+    ))}
+  </ol>
+</article>

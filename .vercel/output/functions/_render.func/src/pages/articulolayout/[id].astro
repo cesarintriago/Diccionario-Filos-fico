@@ -1,0 +1,39 @@
+---
+import { supabase } from '../../../src/lib/supabase.js';
+import Layout from '../../../src/layouts/Default.astro';
+
+export async function load({ params }: { params: { id: string } }) {
+  const { id } = params;
+  let { data: articulo, error } = await supabase
+    .from('articulo')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return {
+      status: 500,
+      error: new Error('Failed to load article'),
+    };
+  }
+
+  return {
+    props: {
+      articulo
+    },
+  };
+
+  console.log(Astro.props.articulo.titulo );
+
+  //imprime el titulo del articulo en la consola
+  console.log(articulo.titulo);
+}
+---
+<html>
+<body>
+   <!-- AQUÍ ESTÁ EL ERROR -->
+  <!-- <h1>{Astro.props.articulo.titulo}</h1> -->
+  <!-- Rest of your article layout goes here -->
+</body>
+</html>
