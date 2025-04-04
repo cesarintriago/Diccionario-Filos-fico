@@ -1,4 +1,6 @@
 ---
+import Busqueda from './Busqueda.astro';
+
 interface Props {
   pageTitle?: string;
 }
@@ -47,7 +49,7 @@ const handleSearch = async (event: any) => {
 };
 ---
 
-<header class='border-b-4 border-black flex justify-between p-6 items-center'>
+<header class='border-b-2 border-black flex justify-between p-4 items-center'>
   {pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
   <a href='/' title='Back to Home'>
     <p class='righteous md:text-5xl'>Manual de Filosofía en español</p>
