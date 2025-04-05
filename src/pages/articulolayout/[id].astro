@@ -1,8 +1,8 @@
 ---
 import { supabase } from '../../../src/lib/supabase.js';
-import Layout from './Default.astro';
 
-export async function load({ params }) {
+
+export async function load({ params }: { params: { id: string } }) {
   const { id } = params;
   let { data: articulo, error } = await supabase
     .from('articulo')

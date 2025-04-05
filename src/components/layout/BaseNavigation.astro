@@ -31,7 +31,7 @@ import { createSignal } from 'solid-js';
 import { supabase } from '../../../src/lib/supabase.js';
 
 let searchQuery = '';
-let searchResults = [];
+let searchResults: { id: number; title: string }[] = [];
 
 const handleSearch = async (event: any) => {
   searchQuery = event.target.value;
@@ -54,11 +54,11 @@ const handleSearch = async (event: any) => {
   <a href='/' title='Back to Home'>
     <p class='righteous md:text-5xl'>Manual de Filosofía en español</p>
   </a>
-  <input type="text" on:input={handleSearch} placeholder="Search..." />
+  <input type="text" placeholder="Búsqueda Próximamente..." />
 
 <ul>
   {searchResults.map(result => (
-    <li key={result.id}>
+    <li data-key={result.id}>
       <a href={`/preambulares/${result.id}`}>{result.title}</a>
     </li>
   ))}

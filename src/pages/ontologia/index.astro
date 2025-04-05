@@ -19,11 +19,24 @@ import BlogList from '@components/blog/BlogList.astro';
 import { supabase } from '../../../src/lib/supabase.js';
 
 
-let { data: articulo, error } = await supabase
-  .from('articulo')
-  .select('titulo, id')
-  .filter('categoria', 'eq', 'Materialismo ontológico')
-  .order('id', { ascending: true })
+let articulo: { titulo: string; id: number }[] = [];
+let error = null;
+
+try {
+  const { data, error: fetchError } = await supabase
+    .from('articulo')
+    .select('titulo, id')
+    .filter('categoria', 'eq', 'Materialismo ontológico')
+    .order('id', { ascending: true });
+
+  if (fetchError) {
+    error = fetchError;
+  } else {
+    articulo = data;
+  }
+} catch (err) {
+  error = err;
+}
 
   //console.log(articulo);
 
@@ -46,9 +59,9 @@ let { data: articulo, error } = await supabase
     <div class={styles.container} >
 
 
-      <ol className={styles['lista-ol']}>
+      <ol class={styles['lista-ol']}>
         {articulo && articulo.map((item: any) => (
-          <li className={styles['lista-li']} tabindex="1">
+          <li class={styles['lista-li']} tabindex="1">
             <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
           </li>
         ))}

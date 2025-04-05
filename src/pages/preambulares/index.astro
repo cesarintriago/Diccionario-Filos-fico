@@ -19,11 +19,11 @@ import BlogList from '@components/blog/BlogList.astro';
 import { supabase } from '../../../src/lib/supabase.js';
 
 
-let { data: articulo, error } = await supabase
+const { data: articulo, error } = await supabase
   .from('articulo')
   .select('titulo, id')
   .filter('categoria', 'eq', 'Cuestiones preambulares')
-  .order('id', { ascending: true })
+  .order('id', { ascending: true });
 
   //console.log(articulo);
 
@@ -53,12 +53,16 @@ let { data: articulo, error } = await supabase
     <div class={styles.container} >
 
 
-      <ol className={styles['lista-ol']}>
-        {articulo && articulo.map((item: any) => (
-          <li className={styles['lista-li']} tabindex="1">
-            <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
-          </li>
-        ))}
+      <ol class={styles['lista-ol']}>
+        {articulo && (
+          <ul>
+            {articulo.map((item: any) => (
+              <li class={styles['lista-li']} tabindex="1">
+                <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
+              </li>
+            ))}
+          </ul>
+        )}
       </ol>
     </div>
       
