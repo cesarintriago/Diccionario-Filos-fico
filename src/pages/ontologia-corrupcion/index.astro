@@ -26,7 +26,7 @@ try {
   const { data, error: fetchError } = await supabase
     .from('articulo')
     .select('titulo, id')
-    .filter('categoria', 'eq', 'Materialismo ontológico')
+    .filter('categoria', 'eq', 'Idea general y Ontología de la Corrupción') 
     .order('id', { ascending: true });
 
   if (fetchError) {
@@ -47,15 +47,15 @@ try {
 
 
 <Layout
-  title='Ontología'
-  description='Brutal Blog | On this page you can find a collection of blogposts'
-  pageTitle='Brutal Blog'
+  title='Idea general y Ontología de la Corrupción'
+  description='Idea general y Ontología de la Corrupción | Entrada del diccionario de Filosofía en Español de César Intriago' 
+  pageTitle='Idea general y Ontología de la Corrupción'
 >
   <main class='bg-green p-6' >
 
     <div class='w-1/1 h-1/1 mx-auto'>
   <Card>
-    <h1 class='text-3xl font-bold text-center'>Ontología</h1>
+    <h1 class='text-3xl font-bold text-center'>Idea general y Ontología de la Corrupción</h1>
     <div class={styles.container} >
 
 

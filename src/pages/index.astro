@@ -8,18 +8,18 @@ import { Card } from '@eliancodes/brutal-ui';
 
 const ontologia = [
   { name: 'Materialismo ontológico', url: '/ontologia/' },
-  { name: 'Dialéctica', url: 'https://uno.antfu.me/' },
+  { name: 'Dialéctica', url: '/ontologia-dialectica/' },
   {
     name: 'Finalidad',
-    url: 'https://docs.astro.build/en/guides/content-collections/',
+    url: '/ontologia-finalidad/',
   },
-  { name: 'Causalidad', url: 'https://docs.astro.build/en/guides/rss/' },
+  { name: 'Causalidad', url: '/ontologia-causalidad/' },
   {
     name: 'Existencia, Posibilidad, Necesidad',
-    url: 'https://docs.astro.build/en/guides/integrations-guide/sitemap/',
+    url: '/ontologia-existencia-posibilidad-necesidad/',
   },
-  { name: 'Apariencia y Verdad', url: 'https://vercel.com' },
-  { name: 'Idea general y Ontología de la Corrupción', url: 'https://www.typescriptlang.org/' },
+  { name: 'Apariencia y Verdad', url: '/ontologia-apariencia-verdad/' },
+  { name: 'Idea general y Ontología de la Corrupción', url: '/ontologia-corrupcion/' },
 ];
 
 const gnoseologia = [
@@ -86,8 +86,8 @@ const estetica=[
 ---
 
 <Layout
-  title='Home'
-  pageTitle='Brutal Theme | Home'
+  title='Índice'
+  pageTitle='Filomat | Home'
   description='Brutal is a minimalistic, neobrutalism theme for Astro.'
 >
   <main class='bg-sky p-6'>
@@ -95,7 +95,7 @@ const estetica=[
     <section id='about' class='grid md:grid-cols-13 gap-8 mt-4'>
       <h2 class='hidden'>About Brutal</h2>
       <div class='col-span-5'>
-        <Card color="#65a30d">
+        <Card color="#ff6467">
           <div class='flex flex-col justify-between items-start gap-4'>
             <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
               I. Cuestiones <a
@@ -115,7 +115,7 @@ const estetica=[
       </div>
       <!--  Tamaño de la tarjeta -->
       <div class='col-span-4'>
-          <Card color="white">
+          <Card color="#ff8904">
           <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
             II. Ontología
           </h2>
@@ -141,7 +141,7 @@ const estetica=[
       </div>
 
       <div class='col-span-4'>
-        <Card color ="#ef4444">
+        <Card color ="#9ae600">
         <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
           III. Gnoseología (Teoría de la ciencia)
         </h2>
@@ -172,8 +172,8 @@ const estetica=[
     <section id='about' class='grid md:grid-cols-13 gap-8 mt-4'>
       <h2 class='hidden'>About Brutal</h2>
       <div class='col-span-6'>
-        <Card color ="#1E3A8A">
-        <h2 class='text-[#FFFFFF] text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+        <Card color ="#00d492">
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
           IV.I. Antropología
         </h2>
 
@@ -195,12 +195,37 @@ const estetica=[
             ))
           }
         </ul>
+      </br>
+
+        <Card color="#00d3f3">
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+            IV.II Filosofía de la Historia
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              filosofiadelahistoria.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
 
       </Card>
     </div>
     
-    <div class='col-span-6'>
-      <Card color="#ef4444">
+    <!-- <div class='col-span-6'>
+      <Card color="#00d3f3">
       <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
         IV.II Filosofía de la Historia
       </h2>
@@ -223,37 +248,12 @@ const estetica=[
         }
       </ul>
     </Card>
-  </div>
+  </div> -->
 
 
 
 
-      <!--  Tamaño de la tarjeta -->
-      <div class='col-span-6'>
-          <Card>
-          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-            V. Ética y moral
-          </h2>
-          <ul class='flex gap-4 flex-wrap'>
-            {
-              eticaymoral.map((item) => (
-                <li>
-                  <Pill>
-                    <a
-                      class='sanchez'
-                      href={item.url}
-                      target='_blank'
-                      title={`Go to ${item.name}`}
-                    >
-                      {item.name}
-                    </a>
-                  </Pill>
-                </li>
-              ))
-            }
-          </ul>
-        </Card>
-      </div>
+      
 
       <div class='col-span-6'>
         <Card>
@@ -278,12 +278,62 @@ const estetica=[
             ))
           }
         </ul>
-             
+      </br>    
+        <div class='col-span-6'>
+          <Card>
+          <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+            VI.I Democracia como sociedad política
+          </h2>
+          <ul class='flex gap-4 flex-wrap'>
+            {
+              democracia.map((item) => (
+                <li>
+                  <Pill>
+                    <a
+                      class='sanchez'
+                      href={item.url}
+                      target='_blank'
+                      title={`Go to ${item.name}`}
+                    >
+                      {item.name}
+                    </a>
+                  </Pill>
+                </li>
+              ))
+            }
+          </ul>
+        </Card>
+      </div>
       </Card>
     </div>  
 
-
-    <div class='col-span-6'>
+<!--  Tamaño de la tarjeta -->
+<div class='col-span-6'>
+  <Card>
+  <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+    V. Ética y moral
+  </h2>
+  <ul class='flex gap-4 flex-wrap'>
+    {
+      eticaymoral.map((item) => (
+        <li>
+          <Pill>
+            <a
+              class='sanchez'
+              href={item.url}
+              target='_blank'
+              title={`Go to ${item.name}`}
+            >
+              {item.name}
+            </a>
+          </Pill>
+        </li>
+      ))
+    }
+  </ul>
+</Card>
+</div>
+    <!-- <div class='col-span-6'>
       <Card>
       <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
         VI.I Democracia como sociedad política
@@ -307,7 +357,7 @@ const estetica=[
         }
       </ul>
     </Card>
-  </div>
+  </div> -->
 
          
       <div class='col-span-6'>
