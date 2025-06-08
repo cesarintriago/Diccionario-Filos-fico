@@ -1,7 +1,6 @@
-# Brutal - The neobrutalist Astro theme
+# Manual de filosofía - En español.
 
-Brutal is a minimal neobrutalist theme for [Astro](https://astro.build/). It's based on Neobrutalist Web Design, a movement that aims to create websites with a minimalistic and functional design. It has some integrations like Image Optimization, RSS, Sitemap, ready to get your SEO done right.
-
+Manual de filosofía de Pelayo García Sierra
 The theme has no JavaScript integration out of the box, but can always be added of course.
 
 This template is based on [my own personal website](<https://www.elian.codes/>), with some more generic things added.
