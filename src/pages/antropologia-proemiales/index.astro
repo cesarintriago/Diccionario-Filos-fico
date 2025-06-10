@@ -26,7 +26,7 @@ try {
   const { data, error: fetchError } = await supabase
     .from('articulo')
     .select('titulo, id')
-    .filter('categoria', 'eq', 'Apariencia y Verdad') 
+    .filter('categoria', 'eq', 'Cuestiones proemiales') 
     .order('id', { ascending: true });
 
   if (fetchError) {
@@ -47,15 +47,15 @@ try {
 
 
 <Layout
-  title='Apariencia y Verdad'
-  description='Idea de Apariencia y Verdad | Entrada del diccionario de Filosofía en Español de César Intriago' 
-  pageTitle='Apariencia y Verdad'
+  title='Antropología. Cuestiones proemiales'
+  description='Antropología. Cuestiones proemiales | Entrada del diccionario de Filosofía en Español de César Intriago' 
+  pageTitle='Antropología. Cuestiones proemiales'
 >
   <main class='bg-green p-6' >
 
     <div class='w-1/1 h-1/1 mx-auto'>
   <Card>
-    <h1 class='text-3xl font-bold text-center'>Apariencia y Verdad</h1>
+    <h1 class='text-3xl font-bold text-center'>Antropología. Cuestiones proemiales</h1>
     <div class={styles.container} >
 
 
