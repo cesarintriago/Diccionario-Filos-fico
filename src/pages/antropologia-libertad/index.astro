@@ -26,7 +26,7 @@ try {
   const { data, error: fetchError } = await supabase
     .from('articulo')
     .select('titulo, id')
-    .filter('categoria', 'eq', 'Individuo y Persona') 
+    .filter('categoria', 'eq', 'Libertad') 
     .order('id', { ascending: true });
 
   if (fetchError) {
@@ -47,15 +47,15 @@ try {
 
 
 <Layout
-  title='Teoría filosófica (gnoseológica) de la ciencia'
-  description='Teoría filosófica (gnoseológica) de la ciencia | Entrada del diccionario de Filosofía en Español de César Intriago' 
-  pageTitle='Teoría filosófica (gnoseológica) de la ciencia'
+  title='Idea de Libertad'
+  description='Idea de Libertad | Entrada del diccionario de Filosofía en Español de César Intriago' 
+  pageTitle='Idea de Libertad'
 >
   <main class='bg-green p-6' >
 
     <div class='w-1/1 h-1/1 mx-auto'>
   <Card>
-    <h1 class='text-3xl font-bold text-center'>Individuo y Persona</h1>
+    <h1 class='text-3xl font-bold text-center'>Libertad</h1>
     <div class={styles.container} >
 
 
