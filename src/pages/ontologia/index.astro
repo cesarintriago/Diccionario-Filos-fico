@@ -55,14 +55,14 @@ try {
 
     <div class='w-1/1 h-1/1 mx-auto'>
   <Card>
-    <h1 class='text-3xl font-bold text-center'>Ontología</h1>
+    <h1 class='text-3xl font-bold text-center'>Materialismo ontológico</h1>
     <div class={styles.container} >
 
 
       <ol class={styles['lista-ol']}>
         {articulo && articulo.map((item: any) => (
           <li class={styles['lista-li']} tabindex="1">
-            <a href={`/preambulares/${item.id}`}>{item.titulo}</a>
+            <a href={`/ontologia/${item.id}`}>{item.titulo}</a>
           </li>
         ))}
       </ol>
