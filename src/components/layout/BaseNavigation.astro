@@ -7,7 +7,6 @@ interface Props {
 
 const navigationItems = [
   { name: 'Inicio', url: '/' },
-  
 ];
 
 const socialIcons = [
@@ -25,28 +24,6 @@ const socialIcons = [
 ];
 
 const { pageTitle } = Astro.props;
-
-//barra de búsqueda
-//import { createSignal } from 'solid-js';
-import { supabase } from '../../../src/lib/supabase.js';
-
-let searchQuery = '';
-let searchResults: { id: number; title: string }[] = [];
-
-const handleSearch = async (event: any) => {
-  searchQuery = event.target.value;
-
-  const { data, error } = await supabase
-    .from('articles')
-    .select('*')
-    .ilike('title', `%${searchQuery}%`);
-
-  if (error) {
-    console.error('Error:', error);
-  } else {
-    searchResults = data;
-  }
-};
 ---
 
 <header class='border-b-2 border-black flex justify-between p-4 items-center'>
@@ -54,15 +31,22 @@ const handleSearch = async (event: any) => {
   <a href='/' title='Back to Home'>
     <p class='righteous md:text-5xl'>Manual de Filosofía en español</p>
   </a>
-  <input type="text" placeholder="Búsqueda Próximamente..." />
+  
+  <div class="relative">
+    <input 
+      type="text" 
+      id="search-input"
+      placeholder="Buscar en el manual..." 
+      class="px-4 py-2 border-2 border-black rounded-none focus:outline-none focus:ring-2 focus:ring-green-500 w-64"
+    />
+    <ul id="search-results" class="absolute top-full left-0 right-0 bg-white border-2 border-black shadow-lg mt-1 max-h-80 overflow-y-auto hidden z-50">
+      <!-- Los resultados se insertarán aquí -->
+    </ul>
+    <div id="search-loading" class="absolute top-full left-0 right-0 bg-white border-2 border-black shadow-lg mt-1 p-4 hidden z-50">
+      <p class="text-center text-gray-500">Buscando...</p>
+    </div>
+  </div>
 
-<ul>
-  {searchResults.map(result => (
-    <li data-key={result.id}>
-      <a href={`/preambulares/${result.id}`}>{result.title}</a>
-    </li>
-  ))}
-</ul>
   <nav class='hidden md:inline-block'>
     <h2 class='hidden'>Navigation</h2>
     <ul class='flex gap-8 poppins'>
@@ -95,10 +79,6 @@ const handleSearch = async (event: any) => {
       }
     </ul>
   </nav>
-  <nav class='md:hidden flex'>
-    <h2 class='hidden'>Mobile Navigation</h2>
-    <ul>
-      <li><a href='/blog/'>Blog</a></li>
-    </ul>
-  </nav>
 </header>
+
+<script src="/js/search.js" is:inline></script>
