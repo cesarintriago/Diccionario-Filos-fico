@@ -35,8 +35,8 @@ const antropologia = [
   { name: "Filosofía de la religión", url: '/antropologia-FilosofiaDeLaReligion/' },
   { name: "Fetichismo, Magia y Religión", url: '/antropologia-Fetichismo-magia-religion/' },
   { name: "Agnosticismo", url: '/antropologia-Agnosticismo/' },
-  { name: "Filosofía de la cultura", url: '/antropologia-FilosofiaDeLaCultura/' },
-  { name: "Filosofía de la Historia", url: '/antropologia-FilosofiaDeLahistoria/' }
+  { name: "Filosofía de la cultura", url: '/antropologia-FilosofiaDeLaCultura/' }
+  /*, { name: "Filosofía de la Historia", url: '/antropologia-FilosofiaDeLahistoria/' } */
 ];
 
 const filosofiadelahistoria = [
@@ -170,7 +170,7 @@ const estetica=[
      
     </section>
 
-
+<div class="my-6"></div> <!-- Espacio -->
     <section id='about' class='grid md:grid-cols-13 gap-8 mt-4'>
       <h2 class='hidden'>About Brutal</h2>
       <div class='col-span-6'>
@@ -252,12 +252,33 @@ const estetica=[
     </Card>
   </div> -->
 
+  <!--  Tamaño de la tarjeta -->
+<div class='col-span-6'>
+  <Card>
+  <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+    V. Ética y moral
+  </h2>
+  <ul class='flex gap-4 flex-wrap'>
+    {
+      eticaymoral.map((item) => (
+        <li>
+          <Pill>
+            <a
+              class='sanchez'
+              href={item.url}
+              target='_self'
+              title={`Go to ${item.name}`}
+            >
+              {item.name}
+            </a>
+          </Pill>
+        </li>
+      ))
+    }
+  </ul>
+</Card>
+ <div class="my-6"></div> <!-- Espacio -->
 
-
-
-      
-
-      <div class='col-span-6'>
         <Card>
         <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
           VI. Filosofia política
@@ -309,32 +330,7 @@ const estetica=[
       </Card>
     </div>  
 
-<!--  Tamaño de la tarjeta -->
-<div class='col-span-6'>
-  <Card>
-  <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-    V. Ética y moral
-  </h2>
-  <ul class='flex gap-4 flex-wrap'>
-    {
-      eticaymoral.map((item) => (
-        <li>
-          <Pill>
-            <a
-              class='sanchez'
-              href={item.url}
-              target='_self'
-              title={`Go to ${item.name}`}
-            >
-              {item.name}
-            </a>
-          </Pill>
-        </li>
-      ))
-    }
-  </ul>
-</Card>
-</div>
+
     <!-- <div class='col-span-6'>
       <Card>
       <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
